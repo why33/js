@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/test1.css" />
+   
+</head>
+<body>
+    <!-- 控制DIV属性 -->
+    <fieldset>
+        <legend>控制Div属性</legend>
+        <div class="controlBut">
+            <!-- 最麻烦的一种 -->
+            <!-- <button onclick="changeWidth()">变宽</button>
+            <button onclick="changeHeight()">变高</button>
+            <button onclick="changeColor()">变色</button>
+            <button onclick='changeHide()'>隐藏</button>
+            <button onclick="changeReset()">重置</button> -->
+            <!--精简-->
+            <button>变宽</button>
+            <button>变高</button>
+            <button>变色</button>
+            <button>隐藏</button>
+            <button>重置</button>
+        </div>
+        <div class="byControlDiv" id="byControlDivId"></div>
+    </fieldset>
+    <!-- 换风格 -->
+    <fieldset>
+        <legend>换风格</legend>
+        <div class="changeStyle">
+            <span>选择页面风格 :</span>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="colorStatus" id="byControlColorStatusId"></div>
+    </fieldset>
+    <script src="js/test1.js"></script>
+</body>
+</html>

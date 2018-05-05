@@ -1,0 +1,68 @@
+/* *{
+    padding: 0;
+    margin: 0;
+} */
+fieldset{
+    width:500px;
+    height: auto;
+    margin: 10px auto;
+}
+legend{
+    color: #f00;
+    font-weight: bold;
+}
+/* 控制DIV属性 */
+.controlBut{
+    width: 90%;
+    text-align: center;
+}
+.controlBut>button{
+    margin-left: 5px;
+    cursor:pointer;
+}
+.byControlDiv{
+    width:100px;
+    height:100px;
+    margin:20px auto;
+    background-color: #000;
+}
+.changeStyle{
+    width: 90%;
+    height:20px;
+    line-height: 20px;
+    margin:0px auto;
+}
+.changeStyle>span{
+    height: 100%;
+    display: inline-block;
+  
+    vertical-align: top;
+
+}
+.changeStyle>ul{
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  
+}
+.changeStyle>ul>li{
+    float: left;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-right:10px; 
+}
+.changeStyle>ul>li:active{
+    border:1px solid black;
+}
+.colorStatus{
+    width: 80%;
+    height: 30px;
+    margin: 20px auto;
+}
+.checked{
+    border:1px solid black;
+}
