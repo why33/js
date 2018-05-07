@@ -82,17 +82,61 @@ var colors=[randomColor(),randomColor(),randomColor()];
 var lis=JsAll('.changeStyle li');
 [].forEach.call(lis,function(item,index,arr){
    item.style.backgroundColor=colors[index];
-   index==0 && item.classList.add('checked');
-   Js('#byControlColorStatusId').style.backgroundColor=colors[0];
+   index==0 && (checkCookie(item.id,item))
    item.onclick=function(){
        for(var i=0;i<lis.length;i++){
            lis[i].classList.remove('checked');
        }
-       this.classList.add('checked');
+       setCookie(this.id,this);
        Js('#byControlColorStatusId').style.backgroundColor=this.style.backgroundColor;
    }
 })
+//cookie
 
+function setCookie(val,item){
+    var date=new Date();
+    date.setTime(date.getTime()+60*60*24*1000);
+    var times=date.toUTCString();
+    document.cookie="id="+val+'; expires='+times+';';
+    item.classList.add('checked');
+    Js('#byControlColorStatusId').style.backgroundColor=item.style.backgroundColor;
+}
+// getCookie('ss');
+function getCookie(name){
+    var cookies=document.cookie;
+    var arr=cookies.split(";")
+    try{
+        arr.forEach(function(item,index){
+            var arrC=item.trim();
+            if(arrC.indexOf(name)==0){
+                throw arrC.substring(name.length+1,arrC.length)
+            }
+        })
+    }
+    catch(e){
+        return e
+    }
+    return '';
+    /*
+    for(var i=0;i<arr.length;i++){
+        var arr0=arr[i].trim();
+        if(arr0.indexOf(name==0)){
+            return 123
+        }
+    }
+    return ""
+    */
+}
+
+function checkCookie(id,item){
+    if(!document.cookie){
+        setCookie(id,item);
+    }else{
+        var val=getCookie('id');
+        lis[val-1].classList.add('checked');
+        Js('#byControlColorStatusId').style.backgroundColor=colors[val-1];
+    }
+}
 //让window.onload具有覆盖性，后面的会覆盖前面的，window.onload加载多个函数和追加函数
 //window.onload =function() { t();  b(); c() ;})也行
 function x2(){
@@ -120,24 +164,4 @@ function onloadFunction(fun){
         }       
     }
 }
-//cookie
-function setCookie(cname,cvalue,exdays){
-  var d = new Date();
-  d.setTime(d.getTime()+(exdays*24*60*60*1000));
-  var expires = "expires="+d.toGMTString();
-  document.cookie = cname + "=" + cvalue + "; " + expires;
-  console.log('setCookie')
-}
-function getCookie(cname){
-  console.log('getCookie',document.cookie,1111)
-  var name = cname + "=";
-  var ca = document.cookie.split(';');
-  for(var i=0; i<ca.length; i++) 
-  {
-    var c = ca[i].trim();
-    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
-  }
-  return "";
-}
-setCookie('xx',123,2);
-getCookie('xx')
+
