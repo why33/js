@@ -184,7 +184,6 @@ checkImgCookie()
 function addImg(obj){
     var imgNew=new Image();
     imgNew.src=obj.querySelector('img').src;
-    console.log(imgNew.outerHTML);
     Js('.pic_first').innerHTML=imgNew.outerHTML;
 }
 function setImgCookie(obj){
@@ -202,7 +201,6 @@ function getImgCookie(name){
         item=item.replace(/^\s*|\s*$/g,"");
         return item;
     })
-    console.log(newArr)
     for(var i=0;i<newArr.length;i++){
         if(newArr[i].indexOf(name)==0){
             return newArr[i].substring(name.length+1,newArr[i].length)

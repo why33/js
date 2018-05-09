@@ -91,6 +91,7 @@ legend{
 .picturePart .pic_first>img{
     width: 80%;
     height: 80%;
+    outline: none;
     margin:10%;
 }
 .picturePart>ul>li.img_small{
