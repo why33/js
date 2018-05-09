@@ -101,7 +101,6 @@ function setCookie(val,item){
     item.classList.add('checked');
     Js('#byControlColorStatusId').style.backgroundColor=item.style.backgroundColor;
 }
-// getCookie('ss');
 function getCookie(name){
     var cookies=document.cookie;
     var arr=cookies.split(";")
@@ -137,7 +136,7 @@ function checkCookie(id,item){
         Js('#byControlColorStatusId').style.backgroundColor=colors[val-1];
     }
 }
-//让window.onload具有覆盖性，后面的会覆盖前面的，window.onload加载多个函数和追加函数
+//window.onload具有覆盖性，后面的会覆盖前面的，window.onload加载多个函数和追加函数
 //window.onload =function() { t();  b(); c() ;})也行
 function x2(){
     // alert(2)
@@ -162,6 +161,62 @@ function onloadFunction(fun){
             onloadF()
             fun()
         }       
+    }
+}
+// --------------------
+//--------图片选择----------------
+var imgs=JsAll('.img_small');
+[].forEach.call(imgs,function(item,index,arr){
+    var img=new Image();
+    img.src="imgs/"+(index+1)+'.jpg';
+    item.appendChild(img);
+    item.onmouseover = function(){
+        setImgCookie(this);
+        for(var j=0;j<imgs.length;j++){
+            imgs[j].className='img_small';
+        }
+        this.className='img_small activeIMG';
+        
+    }
+})
+checkImgCookie()
+//img Cookie;
+function addImg(obj){
+    var imgNew=new Image();
+    imgNew.src=obj.querySelector('img').src;
+    console.log(imgNew.outerHTML);
+    Js('.pic_first').innerHTML=imgNew.outerHTML;
+}
+function setImgCookie(obj){
+    var time=new Date();
+    time.setTime(time.getTime()+1000*60*60*24*3);
+    time=time.toUTCString()
+    document.cookie='imgId='+obj.dataset.img+"; expires="+time+";";
+    obj.className='img_small activeIMG';
+    addImg(obj);
+}
+function getImgCookie(name){
+    var cookieStr=document.cookie;
+    var cookieArr=cookieStr.split(';');
+    var newArr=cookieArr.map(function(item,index){
+        item=item.replace(/^\s*|\s*$/g,"");
+        return item;
+    })
+    console.log(newArr)
+    for(var i=0;i<newArr.length;i++){
+        if(newArr[i].indexOf(name)==0){
+            return newArr[i].substring(name.length+1,newArr[i].length)
+        }
+    }
+    return null;
+}
+function checkImgCookie(){
+    if(!getImgCookie('imgId')){
+        setImgCookie(imgs[0]);
+    }else{
+        var index=getImgCookie('imgId');
+        imgs[index-1].className='img_small activeIMG';
+        addImg(imgs[index-1]);
     }
 }
 

@@ -66,3 +66,47 @@ legend{
 .checked{
     border:2px solid black;
 }
+.picturePart{
+    width:400px;
+    height:440px;
+    margin:20px auto;
+}
+.picturePart>ul{
+    list-style: none;
+   
+}
+.picturePart>ul>li{
+   float: left;
+   width:70px;
+   height:70px;
+   box-sizing: border-box;
+   border: 1px solid #000;
+   margin:5px;
+}
+.picturePart .pic_first{
+    width:230px;
+    height: 230px;
+    border:3px solid #ff0080;
+}
+.picturePart .pic_first>img{
+    width: 80%;
+    height: 80%;
+    margin:10%;
+}
+.picturePart>ul>li.img_small{
+    cursor: pointer;
+    -webkit-filter: opacity(30%);
+    filter:opacity(30%);
+}
+.picturePart>ul>li.img_small>img{
+    width:90%;
+    height:90%;
+    margin: 5%;
+   
+}
+.picturePart>ul>li.activeIMG{
+    -webkit-filter: opacity(100%);
+    filter:opacity(100%);
+    border:3px solid #ff0080;
+    border-radius: 3px;
+}

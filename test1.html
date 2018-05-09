@@ -41,6 +41,53 @@
         </div>
         <div class="colorStatus" id="byControlColorStatusId"></div>
     </fieldset>
+    <!--接受参数并弹出  -->
+    <!-- <fieldset>
+        <legend>函数接受参数并弹出</legend>
+        <form action="" target="targetIfr">
+            <input type="text" name="name"/>
+            <input type="text" name='age'>
+            <input type="submit" value="传参">
+        </form>
+        <a href="http://www.baidu.com" onclick="xx()">ssssss</a>
+        <iframe name='targetIfr' style="width: 80%;height: 20px;"></iframe>
+    </fieldset> -->
+    <!--选图片 -->
+    <fieldset>
+        <legend>图片选择</legend>
+        <div class='picturePart'>
+            <ul>
+                <li class="pic_first"></li>
+                <li class='img_small' data-img="1"></li>
+                <li class='img_small' data-img="2"></li>
+                <li class='img_small' data-img="3"></li>
+                <li class='img_small' data-img="4"></li>
+                <li class='img_small' data-img="5"></li>
+                <li class='img_small' data-img="6"></li>
+                <li class='img_small' data-img="7"></li>
+                <li class='img_small' data-img="8"></li>
+                <li class='img_small' data-img="9"></li>
+                <li class='img_small' data-img="10"></li>
+                <li class='img_small' data-img="11"></li>
+            </ul>
+        </div>
+    </fieldset>
+    <script>
+        // function xx(e){
+        //     console.log(11111111111)
+        //     e.preventDefault()
+        // }
+        // document.getElementsByTagName('form')[0].onsubmit=dd;
+        // function dd(event){
+        //     console.log(11111111111111,event)
+        //     return true;
+        // }
+        var arr=[11,22,33,44,55,66,77,88,99,100];
+        var all=arr.reduce(function(total,currentValue,currentIndex,arr){
+            return total+currentValue
+        },5)
+        console.log(all)
+    </script>
     <script src="js/test1.js"></script>
 </body>
 </html>
