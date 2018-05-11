@@ -132,6 +132,7 @@ function checkCookie(id,item){
         setCookie(id,item);
     }else{
         var val=getCookie('id');
+        console.log(lis[val-1],lis[val-1].classList)
         lis[val-1].classList.add('checked');
         Js('#byControlColorStatusId').style.backgroundColor=colors[val-1];
     }
