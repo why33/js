@@ -217,4 +217,36 @@ function checkImgCookie(){
         addImg(imgs[index-1]);
     }
 }
+// ------------------------------------------------------------------------
+//复选框
+var obj=JsAll('.checkbOX');
+[].forEach.call(obj,function(item,index){
+    item.onchange=function(){
+       isCheckedAll()
+    }
+});
+//全选
+function checkBox(e){
+    var e=e||window.event;
+    var dom=e.target || e.srcElement;
+    var next=dom.nextSibling;
+    [].forEach.call(obj,function(item){
+        item.checked=dom.checked;
+    })
+}
+// 反选
+function invert(){
+    [].forEach.call(obj,function(item){
+        item.checked=!item.checked;
+    })
+    isCheckedAll()
+}
+function isCheckedAll(){
+    for(var i=0,n=0;i<obj.length;i++){
+        obj[i].checked && n++;
+    }
+    Js('.changeCheck').checked=(n==obj.length);
+    Js('.changeCheck').checked?"全不选":"全选";
+}
+
 
