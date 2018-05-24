@@ -2,6 +2,12 @@
     padding: 0;
     margin: 0;
 } */
+*{
+    -moz-user-select:none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 fieldset{
     width:500px;
     height: auto;
