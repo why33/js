@@ -233,7 +233,8 @@ function checkBox(e){
     var next=dom.nextSibling;
     [].forEach.call(obj,function(item){
         item.checked=dom.checked;
-    })
+    });
+    dom.checked?next.innerHTML="全不选":next.innerHTML="全选";
 }
 // 反选
 function invert(){
@@ -247,7 +248,7 @@ function isCheckedAll(){
         obj[i].checked && n++;
     }
     Js('.changeCheck').checked=(n==obj.length);
-    Js('.changeCheck').checked?"全不选":"全选";
+    Js('.changeCheck').checked?Js('.changeCheck+span').innerHTML="全不选":Js('.changeCheck+span').innerHTML="全选";
 }
 
 
